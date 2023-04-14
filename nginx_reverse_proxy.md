@@ -21,36 +21,53 @@
 **First Install Certbot On server**:
 **Certbot Installation**:-
 ----------------
-	**Step 1** — Installing Certbot
+	Step 1 — Installing Certbot
 	
-	```Cmd: sudo snap install core; sudo snap refresh core```
+	```
+	Cmd: sudo snap install core; sudo snap refresh core
+	```
 
-	**Remove if already installed**
+	Remove if already installed
 	
-	```Cmd: sudo apt remove certbot
+	```
+	Cmd: sudo apt remove certbot
 
-	sudo snap install --classic certbot```
+	sudo snap install --classic certbot
 	
-	```Cmd: sudo ln -s /snap/bin/certbot /usr/bin/certbot```
+	```
+	
+	```
+	Cmd: sudo ln -s /snap/bin/certbot /usr/bin/certbot
+	```
 
-	**- Obtain certificate**
+	- Obtain certificate
 	
-	```ssudo certbot certonly --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory --manual-public-ip-logging-ok -ddev.saikrishnareddy.xyz```
+	```
+	sudo certbot certonly --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory --manual-public-ip-logging-ok -ddev.saikrishnareddy.xyz
+	```
 
-	**Step 3** — Allowing HTTPS Through the Firewall
+	Step 3 — Allowing HTTPS Through the Firewall
 	
-	```Cmd: sudo ufw status```
+	```
+	Cmd: sudo ufw status
+	```
 	
-	**Step 4** — If it is not allowed ,do enable
+	Step 4 — If it is not allowed ,do enable
 	
-	```Cmd: sudo ufw enable && sudo ufw allow 'Nginx HTTP' && sudo ufw allow ‘Nginx Full’```
+	```
+	Cmd: sudo ufw enable && sudo ufw allow 'Nginx HTTP' && sudo ufw allow ‘Nginx Full’
+	```
 	
-	**Check the ufw List**: ```sudo ufw app list```
+	Check the ufw List: ```
+	sudo ufw app list
+	```
 
-	**Step 5** — Verifying Certbot Auto-Renewal
+	Step 5 — Verifying Certbot Auto-Renewal
 	
-	```Cmd: sudo systemctl status snap.certbot.renew.service
-	Cmd: sudo certbot renew --dry-run```
+	```
+	Cmd: sudo systemctl status snap.certbot.renew.service
+	Cmd: sudo certbot renew --dry-run
+	```
 
 ***Step 4***:
 	Install Nginx Reverse Proxy:
@@ -125,4 +142,6 @@ server {
 	Step 6 —Check the Url in server using curl whether the domain getting healthy or not
 	Cmd: curl -I http://rewardx-console-dev.getwalk.in/
 Step 5: 
-	Enable Firewall to server from DigitalOcean or AWS```
+	Enable Firewall to server from DigitalOcean or AWS
+
+```
