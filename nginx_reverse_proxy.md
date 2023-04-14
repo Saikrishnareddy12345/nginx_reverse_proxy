@@ -21,53 +21,49 @@
 **First Install Certbot On server**:
 **Certbot Installation**:-
 ----------------
+```shell
 	Step 1 — Installing Certbot
 	
-	```
 	Cmd: sudo snap install core; sudo snap refresh core
-	```
 
 	Remove if already installed
 	
-	```
 	Cmd: sudo apt remove certbot
 
 	sudo snap install --classic certbot
 	
-	```
 	
-	```
+	
+	
 	Cmd: sudo ln -s /snap/bin/certbot /usr/bin/certbot
-	```
+
 
 	- Obtain certificate
 	
-	```
 	sudo certbot certonly --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory --manual-public-ip-logging-ok -ddev.saikrishnareddy.xyz
-	```
 
 	Step 3 — Allowing HTTPS Through the Firewall
 	
-	```
 	Cmd: sudo ufw status
-	```
 	
 	Step 4 — If it is not allowed ,do enable
 	
-	```
-	Cmd: sudo ufw enable && sudo ufw allow 'Nginx HTTP' && sudo ufw allow ‘Nginx Full’
-	```
 	
-	Check the ufw List: ```
+	Cmd: sudo ufw enable && sudo ufw allow 'Nginx HTTP' && sudo ufw allow ‘Nginx Full’
+	
+	
+	Check the ufw List:
+	
 	sudo ufw app list
-	```
+	
 
 	Step 5 — Verifying Certbot Auto-Renewal
 	
-	```
+	
 	Cmd: sudo systemctl status snap.certbot.renew.service
+	
 	Cmd: sudo certbot renew --dry-run
-	```
+	
 
 ***Step 4***:
 	Install Nginx Reverse Proxy:
