@@ -1,53 +1,83 @@
-Setup HostBased Application for Rewardx console for Dev environment.
-Step 1: 
+**Setup HostBased Application for Rewardx console for Dev environment.**
+
+
+**Step 1**: 
 	Open CloudFlare by using https://dash.cloudflare.com/
 	By Default you are moved to the Websites page.
 	Select and enter on getwalkin.in Domain.
-Step 2:
+	
+	
+**Step 2**:
 	Go to the Left Menu Click on DNS and Create a Record that should be only A Record.
 	Only.Give the SubDomain Name(dev) and put it here IP Address(which is from DigitalOcean).
 	Save Record.
-Step 3: 
+	
+	
+**Step 3**: 
 	Open terminal in your Local and Do ssh to the rewardx-console server.
 	Install Nginx Reverse Proxy. The Proxy setup is as follows.
-First Install Certbot On server:
-Certbot Installation:-
+	
+	
+**First Install Certbot On server**:
+**Certbot Installation**:-
 ----------------
-Step 1 — Installing Certbot
-Cmd: sudo snap install core; sudo snap refresh core
+	**Step 1** — Installing Certbot
+	
+	```Cmd: sudo snap install core; sudo snap refresh core```
 
-Remove if already installed
-Cmd: sudo apt remove certbot
+	**Remove if already installed**
+	
+	```Cmd: sudo apt remove certbot
 
-sudo snap install --classic certbot
-Cmd: sudo ln -s /snap/bin/certbot /usr/bin/certbot
+	sudo snap install --classic certbot```
+	
+	```Cmd: sudo ln -s /snap/bin/certbot /usr/bin/certbot```
 
-- Obtain certificate
-sudo certbot certonly --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory --manual-public-ip-logging-ok -ddev.saikrishnareddy.xyz
+	**- Obtain certificate**
+	
+	```ssudo certbot certonly --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory --manual-public-ip-logging-ok -ddev.saikrishnareddy.xyz```
 
-Step 3 — Allowing HTTPS Through the Firewall
-Cmd: sudo ufw status
-Step 4 — If it is not allowed ,do enable
-Cmd: sudo ufw enable && sudo ufw allow 'Nginx HTTP' && sudo ufw allow ‘Nginx Full’
-Check the ufw List: sudo ufw app list
+	**Step 3** — Allowing HTTPS Through the Firewall
+	
+	```Cmd: sudo ufw status```
+	
+	**Step 4** — If it is not allowed ,do enable
+	
+	```Cmd: sudo ufw enable && sudo ufw allow 'Nginx HTTP' && sudo ufw allow ‘Nginx Full’```
+	
+	**Check the ufw List**: ```sudo ufw app list```
 
-Step 5 — Verifying Certbot Auto-Renewal
-Cmd: sudo systemctl status snap.certbot.renew.service
-Cmd: sudo certbot renew --dry-run
+	**Step 5** — Verifying Certbot Auto-Renewal
+	
+	```Cmd: sudo systemctl status snap.certbot.renew.service
+	Cmd: sudo certbot renew --dry-run```
 
-Step 4:
+***Step 4***:
 	Install Nginx Reverse Proxy:
+	
 	Step 1 — Update the server First.
+	
 	Cmd: sudo apt update -y
+	
 	Step 2 — Install Nginx service
+	
 	Cmd: apt install nginx -y
+	
 	Step 3 — start the Nginx Service
+	
 	Cmd: systemctl start nginx && systemctl enable nginx && systemctl status nginx
+	
 	Step 4 — Go to the Nginx proxy Path and edit the config file.
+	
 	Cmd: cd /etc/nginx/sites-available/
+	
 	Edit the default file and write the following code
-vi default
+	
+**vi default**
+
 —--------------------------------------------------
+
+```
 server {
     server_name dev.saikrishnareddy.xyz;
 
@@ -95,4 +125,4 @@ server {
 	Step 6 —Check the Url in server using curl whether the domain getting healthy or not
 	Cmd: curl -I http://rewardx-console-dev.getwalk.in/
 Step 5: 
-	Enable Firewall to server from DigitalOcean or AWS
+	Enable Firewall to server from DigitalOcean or AWS```
