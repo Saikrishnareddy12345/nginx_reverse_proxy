@@ -63,7 +63,7 @@
 	Cmd: sudo systemctl status snap.certbot.renew.service
 	
 	Cmd: sudo certbot renew --dry-run
-	
+```
 
 ***Step 4***:
 	Install Nginx Reverse Proxy:
@@ -85,7 +85,7 @@
 	Cmd: cd /etc/nginx/sites-available/
 	
 	Edit the default file and write the following code
-```
+
 	
 **vi default**
 
@@ -129,6 +129,7 @@ server {
     server_name dev.saikrishnareddy.xyz;
     return 404; # managed by Certbot
 }
+```
 —--------------------------------------------------------------------------
 	Save the file and enable the Nginx Proxy file incase if not enabled.
 	Cmd: sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
@@ -141,4 +142,4 @@ server {
 Step 5: 
 	Enable Firewall to server from DigitalOcean or AWS
 
-```
+
