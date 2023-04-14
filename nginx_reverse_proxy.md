@@ -85,6 +85,7 @@
 	Cmd: cd /etc/nginx/sites-available/
 	
 	Edit the default file and write the following code
+```
 	
 **vi default**
 
