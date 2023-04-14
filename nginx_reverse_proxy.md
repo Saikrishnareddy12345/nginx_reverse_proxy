@@ -89,7 +89,7 @@
 	
 **vi default**
 
-—--------------------------------------------------
+**—--------------------------------------------------**
 
 ```
 server {
@@ -130,7 +130,8 @@ server {
     return 404; # managed by Certbot
 }
 ```
-—--------------------------------------------------------------------------
+**—--------------------------------------------------------------------------**
+```shell
 	Save the file and enable the Nginx Proxy file incase if not enabled.
 	Cmd: sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 	Unlink any other files are enabled.
@@ -139,7 +140,8 @@ server {
 	Cmd: systemctl restart nginx
 	Step 6 —Check the Url in server using curl whether the domain getting healthy or not
 	Cmd: curl -I http://rewardx-console-dev.getwalk.in/
-Step 5: 
-	Enable Firewall to server from DigitalOcean or AWS
+```
+**Step 5**: 
+	Enable Firewall to this server from DigitalOcean or AWS
 
 
