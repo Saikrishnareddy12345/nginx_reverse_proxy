@@ -40,7 +40,7 @@
 
 	- Obtain certificate
 	
-	sudo certbot certonly --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory --manual-public-ip-logging-ok -d saikrishnareddy.xyz
+	sudo certbot certonly --manual --preferred-challenges dns --server https://acme-v02.api.letsencrypt.org/directory --manual-public-ip-logging-ok -d dev.saikrishnareddy.xyz
 
 	Step 3 — Allowing HTTPS Through the Firewall
 	
